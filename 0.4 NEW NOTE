@@ -1,0 +1,22 @@
+title Ej. 0.4
+
+browser->Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+Server->browser: HTML CODE
+browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server->browser: MAIN CSS
+browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Server->browser: MAIN JS
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server-->browser: [{ content: "hello fullstack ",date: "2021-11-09T09:47:15.242Z" }, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
